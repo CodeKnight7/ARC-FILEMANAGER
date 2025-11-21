@@ -280,7 +280,6 @@ function renderFileList() {
                 <p class="file-meta">Size: ${formatFileSize(file.size)}</p>
             </div>
             <div class="file-actions">
-                <button onclick="openFile(${file.id})">Open</button>
                 <button onclick="copyFile(${file.id})">Duplicate</button>
                 <button onclick="enableRename(${file.id})">Rename</button>
                 <button onclick="downloadFile(${file.id})">Download</button>
