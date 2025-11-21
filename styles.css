@@ -1,0 +1,372 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Ratio Modern', sans-serif;
+    background-color: #1a1e35;
+    color: #e1e8f0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #243e6c;
+    padding: 1rem;
+}
+
+.title-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.navbar h1 {
+    font-size: 1.8rem;
+    color: #e1e8f0;
+    animation: fadeInOut 2s infinite;
+}
+
+.developer-name {
+    font-size: 1rem;
+    color: #e1e8f0;
+    animation: fadeInOut 2s infinite;
+    margin-top: 0.2rem;
+}
+
+#search {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    border: none;
+    width: 50%;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Container Styling */
+.drive-container {
+    display: flex;
+    height: calc(100vh - 64px);
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #2b437c;
+    padding: 1rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    animation: slideInLeft 1s ease-out forwards;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.sidebar ul li {
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background-color: #3c5a99;
+    border-radius: 5px;
+}
+
+.new-button,
+.file-actions button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    background-color: #4b6aa5;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: bounceIn 1.2s ease-out forwards;
+}
+
+.new-button:hover,
+.file-actions button:hover {
+    background-color: #3c5a99;
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Animated button bounce */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Button animation triggered on page load */
+.new-button,
+.file-actions button {
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+.storage-usage {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: #e1e8f0;
+}
+
+/* Main Content */
+.main-content {
+    width: 80%;
+    padding: 1rem;
+    overflow-y: auto;
+    animation: fadeInRight 1.2s ease-out forwards;
+}
+
+.file-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.file-header h2 {
+    font-size: 1.5rem;
+}
+
+/* File List */
+.file-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background-color: #2b437c;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.file-item:hover {
+    transform: scale(1.02);
+}
+
+.file-item img {
+    width: 40px;
+    margin-right: 1rem;
+}
+
+.file-info {
+    flex: 1;
+}
+
+.file-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.file-meta {
+    font-size: 0.9rem;
+    color: #b0c7e4;
+}
+
+.file-actions button {
+    margin-left: 1rem;
+    padding: 0.5rem 0.8rem;
+}
+
+/* Loading Overlay */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease-out;
+    visibility: hidden; /* Hidden by default */
+    opacity: 0; /* Hidden by default */
+}
+
+.uploading #loading-overlay {
+    visibility: visible;
+    opacity: 1;
+}
+
+#loading-bar {
+    width: 80%;
+    height: 20px;
+    background-color: #2b437c;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #e1e8f0;
+    animation: glow 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px #e1e8f0, 0 0 15px #4b6aa5;
+    }
+    50% {
+        box-shadow: 0 0 20px #e1e8f0, 0 0 30px #4b6aa5;
+    }
+}
+
+#loading-progress {
+    height: 100%;
+    width: 0;
+    background-color: #4b6aa5;
+    animation: loadingProgress 3s linear forwards;
+}
+
+#loading-text {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Loading Bar Animation */
+@keyframes loadingProgress {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounceIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Success and Error Messages */
+.upload-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.upload-message.fade-out {
+    opacity: 0;
+}
+
+.upload-message.error {
+    background-color: #e74c3c;
+}
+
+/* New Added Features for Uploading */
+.uploading .navbar h1,
+.uploading .developer-name,
+.uploading #search,
+.uploading .sidebar ul li,
+.uploading .new-button,
+.uploading .file-item {
+    animation: shake 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(5px);
+    }
+}
+
+.uploading .file-item:hover {
+    transform: scale(1);
+}
+
+.uploading .file-item {
+    background-color: #344b7c;
+}
+
+.uploading .new-button,
+.uploading .file-actions button {
+    background-color: #2b437c;
+    animation: none;
+}
+
+.uploading .new-button:hover,
+.uploading .file-actions button:hover {
+    background-color: #3c5a99;
+    transform: none;
+}

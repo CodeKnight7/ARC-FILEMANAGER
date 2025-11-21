@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arc Drive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ratio+Modern:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="title-section">
+            <h1>Arc Drive</h1>
+            <p class="developer-name">Developed by Jaiganesh</p>
+        </div>
+        <input type="text" id="search" placeholder="Search...">
+    </div>
+
+    <div class="drive-container">
+        <div class="sidebar">
+            <button class="new-button" onclick="triggerFileUpload()">+ Upload File</button>
+            <input type="file" id="file-upload" hidden>
+            <ul>
+                <li>My Drive</li>
+                
+            </ul>
+            <div class="storage-usage">
+                <p>Storage Used: <span id="storage-used">0 MB</span></p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="file-header">
+                <h2>My Files</h2>
+            </div>
+            <div class="file-list" id="file-list">
+                <!-- Uploaded files will be shown here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for File Upload Progress -->
+    <div id="upload-modal" class="modal" hidden>
+        <div class="modal-content">
+            <h3>Uploading...</h3>
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+            <p id="upload-percentage">0%</p>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" hidden>
+        <div id="loading-bar">
+            <div id="loading-progress"></div>
+        </div>
+        <p id="loading-text">Uploading File...</p>
+    </div>
+
+    <!-- Success and Error Messages -->
+    <div id="upload-message" class="upload-message" hidden></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
