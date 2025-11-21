@@ -285,7 +285,6 @@ function renderFileList() {
                 <button onclick="downloadFile(${file.id})">Download</button>
                 <button onclick="deleteFile(${file.id})">Delete</button>
                 <button onclick="togglePinFile(${file.id})">${file.pinned ? 'Unpin' : 'Pin'}</button>
-                <button onclick="shareFile(${file.id})">Share</button> <!-- New Share Button -->
             </div>
         `;
 
